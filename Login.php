@@ -1,6 +1,7 @@
 <?php
   session_start();
-  include("connection.php");
+  include("classes/connection.php");
+  include("autoload.html");
   include("login.html");
 
   $bd = new Banco();

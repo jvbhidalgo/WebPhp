@@ -1,6 +1,6 @@
 <?php
   session_start();
-  include("connection.php");
+  include("classes/connection.php");
 
   $bd = new Banco();
   
@@ -18,15 +18,15 @@
   $result->execute($params);
   $usuario = $result->fetch();
 
-  $nome = $usuario['USUNOME'];
-  $email = $usuario['USUMAIL'];
-  $telefone = $usuario['USUFONE'];
-  $cep = $usuario['USUCEP'];
-  $rua = $usuario['USURUA'];
-  $bairro = $usuario['USUBAIRRO'];
-  $cidade = $usuario['USUCIDA'];
-  $uf = $usuario['USUESTA'];
-  $numero = $usuario['USUENDN'];
+  $nome       = $usuario['USUNOME'];
+  $email      = $usuario['USUMAIL'];
+  $telefone   = $usuario['USUFONE'];
+  $cep        = $usuario['USUCEP'];
+  $rua        = $usuario['USURUA'];
+  $bairro     = $usuario['USUBAIRRO'];
+  $cidade     = $usuario['USUCIDA'];
+  $uf         = $usuario['USUESTA'];
+  $numero     = $usuario['USUENDN'];
 
   include("sucesso.html");
 ?>

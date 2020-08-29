@@ -1,13 +1,16 @@
 <?php
   session_start();
-  include("connection.php");
+  include("classes/connection.php");
+  include("classes/Funcao.class.php");
+  include("autoload.html");
   include("cadastro.html");
 
-  $bd = new Banco();
+  $bd   = new Banco();
+  $func = new Funcao();
   
   if (isset($_POST['cada'])){
     $login         = $_POST["login"];
-    $nome          = $_POST["nome"];
+    $nome          = mb_strtoupper($func->limpaEspecial($_POST["nome"]));
     $pass          = $_POST["senha"];
     $email         = $_POST["email"];
     $telefone      = $_POST["telefone"];
@@ -23,7 +26,7 @@
     $result = $con->prepare($sql);
     
     $params = array(
-        'login'  => $login
+        'login'  => strtoupper($login)
     );
     $result->execute($params);
     $usuario = $result->fetch();
