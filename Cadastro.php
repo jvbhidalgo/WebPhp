@@ -13,8 +13,8 @@
     $nome          = mb_strtoupper($func->limpaEspecial($_POST["nome"]));
     $pass          = $_POST["senha"];
     $email         = $_POST["email"];
-    $telefone      = $_POST["telefone"];
-    $cep           = $_POST["cep"];
+    $telefone      = str_replace(' ','',$func->limpaEspecial($_POST["telefone"]));
+    $cep           = str_replace(' ','',$func->limpaEspecial($_POST["cep"]));
     $uf            = $_POST["uf"];
     $bairro        = $_POST["bairro"];
     $cidade        = $_POST["cidade"];
