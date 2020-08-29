@@ -6,30 +6,51 @@
   $bd = new Banco();
   
   if (isset($_POST['cada'])){
-    $nome = $_POST["login"];
-    $pass = $_POST["senha"];
+    $login         = $_POST["login"];
+    $nome          = $_POST["nome"];
+    $pass          = $_POST["senha"];
+    $email         = $_POST["email"];
+    $telefone      = $_POST["telefone"];
+    $cep           = $_POST["cep"];
+    $uf            = $_POST["uf"];
+    $bairro        = $_POST["bairro"];
+    $cidade        = $_POST["cidade"];
+    $rua           = $_POST["rua"];
+    $numero        = $_POST["numero"];
+    $cpass         = $_POST["csenha"];
 
-    $sql = "SELECT usuid FROM usucad WHERE usulg = :name";
+    $sql = "SELECT usuid FROM usucad WHERE usulogin = :login";
     $result = $con->prepare($sql);
     
     $params = array(
-        'name'  => $nome
+        'login'  => $login
     );
     $result->execute($params);
     $usuario = $result->fetch();
 
     if (!$usuario){
-      $sql = "CALL cadastraUsuario(:name,:pass)";
+      $sql = "CALL cadastraUsuario(:login,:nome,:email,:telefone,:cep,:rua,:bairro,:cidade,:uf,:numero,:pass)";
       $result = $con->prepare($sql);
       
       $params = array(
-        'name'  => $nome,
-        'pass'  => $pass
+        'login'      => $login,
+        'nome'       => $nome,
+        'email'      => $email,
+        'telefone'   => $telefone,
+        'cep'        => $cep,
+        'rua'        => $rua,
+        'bairro'     => $bairro,
+        'cidade'     => $cidade,
+        'uf'         => $uf,
+        'numero'     => $numero,
+        'pass'       => $pass
       );
       $result->execute($params);
 
       echo "Usuario: $nome, Cadastrado com sucesso!";
     }
+    else
+      echo "Usuario já cadastrado";
 
   }
 

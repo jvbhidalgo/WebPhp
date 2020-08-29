@@ -9,7 +9,7 @@
     $nome = $_POST["login"];
     $pass = $_POST["senha"];
 
-    $sql = "SELECT usuid FROM usucad WHERE usulg = :name and ususn = :senha";
+    $sql = "SELECT usuid FROM usucad WHERE usulogin = :name and ususenha = :senha";
     $result = $con->prepare($sql);
     
     $params = array(
