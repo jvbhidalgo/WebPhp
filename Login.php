@@ -1,0 +1,33 @@
+<?php
+  session_start();
+  include("connection.php");
+  include("login.html");
+
+  $bd = new Banco();
+  
+  if (isset($_POST['cada'])){
+    $nome = $_POST["login"];
+    $pass = $_POST["senha"];
+
+    $sql = "SELECT usuid FROM usucad WHERE usulg = :name and ususn = :senha";
+    $result = $con->prepare($sql);
+    
+    $params = array(
+        'name'  => $nome,
+        'senha' => $pass
+    );
+    $result->execute($params);
+    $usuario = $result->fetch();
+
+    if ($usuario){
+      $_SESSION['usuario'] = $usuario['usuid'];
+      $bd->Redirect("sucesso.php");
+    }
+    else
+     echo 'Usuário não cadastrado no sistema';
+    
+  }
+
+
+  
+?>
