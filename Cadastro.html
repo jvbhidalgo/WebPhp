@@ -5,16 +5,18 @@
     <input type="text" placeholder="Login" name="login" minlength="8" required>
     <input type="text" placeholder="Nome Completo" name="nome" minlength="8" required>
     <input type="email" placeholder="Email" name="email" required>
-    <input type="tel" placeholder="Telefone" name="telefone" required>
+    <input type="text" id="telefone" class="telefone" placeholder="Telefone" name="telefone" required value="">
       <br/><input name="cep" type="text" id="cep" value="" size="10" maxlength="9" placeholder="CEP" required/></label><br />
-      <input name="rua" type="text" id="rua" size="60" placeholder="Rua" required disabled/></label><br />
-      <input name="bairro" type="text" id="bairro" size="40" placeholder="Bairro" required disabled/></label><br />
-      <input name="cidade" type="text" id="cidade" size="40" placeholder="Cidade" required disabled/></label><br />
-      <input name="uf" type="text" id="uf" size="2"placeholder="UF" required/></label><br />
+      <input name="rua" type="text" id="rua" size="60" placeholder="Rua" required readonly></label><br />
+      <input name="bairro" type="text" id="bairro" size="40" placeholder="Bairro" required readonly/></label><br />
+      <input name="cidade" type="text" id="cidade" size="40" placeholder="Cidade" required readonly/></label><br />
+      <input name="uf" type="text" id="uf" size="2"placeholder="UF" required readonly/></label><br />
     <input type="text" placeholder="Numero" name="numero" required>
     <input type="password" placeholder="Senha" name="senha" required>
     <input type="password" placeholder="Confirmar Senha" name="csenha" required>
-    <button type="submit" name="cada">Cadastrar</button>
+    <button type="submit" name="cada">Cadastrar</button><br/>
   </form>
+  <br>
+  <button><a href="index.html">Voltar</a></button>
 </body>
 </html>
