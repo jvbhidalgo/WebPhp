@@ -18,8 +18,7 @@ CREATE OR REPLACE DEFINER=`root`@`localhost` PROCEDURE `CadastraUsuario` (IN `lo
 
 
 DELIMITER $$
-CREATE OR REPLACE DEFINER=`root`@`localhost` PROCEDURE `AtualizaUsuario` (IN `login`        VARCHAR(24),
-                                                                          IN `nome`         VARCHAR(255),
+CREATE OR REPLACE DEFINER=`root`@`localhost` PROCEDURE `AtualizaUsuario` (IN `nome`         VARCHAR(255),
                                                                           IN `email`        VARCHAR(255),
                                                                           IN `telefone`     VARCHAR(20),
                                                                           IN `cep`          VARCHAR(8),
@@ -31,7 +30,7 @@ CREATE OR REPLACE DEFINER=`root`@`localhost` PROCEDURE `AtualizaUsuario` (IN `lo
                                                                           IN `id`           INT(5))
                                                                           
   BEGIN
-    UPDATE  USUCAD SET USULOGIN = login ,USUNOME = nome,USUMAIL = email,USUFONE = telefone ,
+    UPDATE  USUCAD SET USUNOME = nome,USUMAIL = email,USUFONE = telefone ,
                        USUCEP = cep,USURUA = rua ,USUBAIRRO = bairro,USUCIDA = cidade,USUESTA = uf,
                        USUENDN = numero
                  WHERE USUID = id;
