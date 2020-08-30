@@ -4,7 +4,11 @@
   include("classes/Funcao.class.php");
   include("autoload.html");
   
+
+  
   $func = new Funcao();
+
+  $error      = 0;
   $nome       = '';
   $email      = '';
   $telefone   = '';
@@ -14,7 +18,7 @@
   $cidade     = '';
   $uf         = '';
   $numero     = '';
-  
+
   if (isset($_POST['procura'])){
 
     
@@ -60,11 +64,11 @@
     }
     else{
       $error = 1;
+
     }
-    
   }
 
-  if(isset($_POST['editar'])){
+  if(isset($_POST['remove'])){
 
     $nome          = mb_strtoupper($func->limpaEspecial($_POST["nome"]));
     $email         = $_POST["email"];
@@ -89,24 +93,16 @@
 
     $id = $procura['USUID'];
 
-    $sql = "CALL atualizaUsuario(:nome,:email,:telefone,:cep,:rua,:bairro,:cidade,:uf,:numero,:id)";
+    $sql = "DELETE FROM USUCAD
+                  WHERE USUID = :id";
     $result = $con->prepare($sql);
       
     $params = array(
-      'nome'       => $nome,
-      'email'      => $email,
-      'telefone'   => $telefone,
-      'cep'        => $cep,
-      'rua'        => $rua,
-      'bairro'     => $bairro,
-      'cidade'     => $cidade,
-      'uf'         => $uf,
-      'numero'     => $numero,
       'id'         => $id
     );
     $result->execute($params);
 
-    echo "Usuario: $nome, atualizado com sucesso!";
-  }
-  include("procuraUsuario.html");
+    echo "Usuario: $nome, Removido com sucesso!";
+    }
+  include("removeUsuario.html");
   ?>

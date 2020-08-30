@@ -1,22 +1,45 @@
-  <title>Cadastro</title>
+<title>Cadastro</title>
 </head>
+
 <body>
-  <form id="cad" method="post" action="">
-    <input type="text" placeholder="Login" name="login" minlength="8" required>
-    <input type="text" placeholder="Nome Completo" name="nome" minlength="8" required>
-    <input type="email" placeholder="Email" name="email" required>
-    <input type="text" id="telefone" class="telefone" placeholder="Telefone" name="telefone" required value="">
-      <br/><input name="cep" type="text" id="cep" value="" size="10" maxlength="9" placeholder="CEP" required/></label><br />
-      <input name="rua" type="text" id="rua" size="60" placeholder="Rua" required readonly></label><br />
-      <input name="bairro" type="text" id="bairro" size="40" placeholder="Bairro" required readonly/></label><br />
-      <input name="cidade" type="text" id="cidade" size="40" placeholder="Cidade" required readonly/></label><br />
-      <input name="uf" type="text" id="uf" size="2"placeholder="UF" required readonly/></label><br />
-    <input type="text" placeholder="Numero" name="numero" required>
-    <input type="password" placeholder="Senha" name="senha" required>
-    <input type="password" placeholder="Confirmar Senha" name="csenha" required>
-    <button type="submit" name="cada">Cadastrar</button><br/>
-  </form>
-  <br>
-  <button><a href="index.html">Voltar</a></button>
+  <div class="mt-4" style="margin: auto; width: 40%;">
+    <form class="form-group" id="cad" method="post" action=""><br />
+      <div class="row">
+        <div class="col">
+          <input type="text" class="form-control" placeholder="Login" name="login" minlength="8" required>
+        </div>
+        <div class="col">
+          <input type="text" class="form-control" placeholder="Nome Completo" name="nome" minlength="8" required><br />
+        </div>
+      </div>
+      <input type="email" class="form-control" placeholder="Email" name="email" required><br />
+      <div class="row">
+        <div class="col">
+          <input type="text" id="telefone" class="telefone form-control" placeholder="Telefone" name="telefone" required
+            value="">
+        </div>
+        <div class="col">
+          <input name="cep" class="form-control" type="text" id="cep" value="" size="10" maxlength="9" placeholder="CEP"
+            required /><br />
+        </div>
+      </div>
+      <input name="rua" class="form-control" type="text" id="rua" size="60" placeholder="Rua" required
+        readonly><br />
+      <input name="bairro" class="form-control" type="text" id="bairro" size="40" placeholder="Bairro" required
+        readonly /><br />
+      <input name="cidade" class="form-control" type="text" id="cidade" size="40" placeholder="Cidade" required
+        readonly /><br />
+      <input name="uf" class="form-control" type="text" id="uf" size="2" placeholder="UF" required
+        readonly /><br />
+      <input type="text" class="form-control" placeholder="Numero" name="numero" required><br />
+      <input type="password" class="form-control" placeholder="Senha" name="senha" required><br />
+      <input type="password" class="form-control" placeholder="Confirmar Senha" name="csenha" required><br />
+      <button type="submit" class="btn btn-primary" name="cada">Cadastrar</button><br />
+    </form>
+    <br>
+    <button class="btn btn-primary mb-4"><a style="color: white; text-decoration: none;"
+        href="index.html">Voltar</a></button>
+  </div>
 </body>
+
 </html>

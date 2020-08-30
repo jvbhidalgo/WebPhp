@@ -80,4 +80,13 @@ $(document).ready(function(){
   $("#cep").mask("00000-000")
 });
 
-       
+window.onload = exibeAlerta;
+
+function exibeAlerta() {
+
+    var err = document.getElementById('error').value;
+    if(err == 1){
+        document.getElementById('usuc').style.display = 'block';
+    }
+
+}
