@@ -50,10 +50,10 @@
       );
       $result->execute($params);
 
-      echo "Usuario: $nome, Cadastrado com sucesso!";
+      echo "<div class='container'><h6 style='color:green;'>Usuario: $nome, Cadastrado com sucesso!</h6><div>";
     }
     else
-      echo "Usuario já cadastrado";
+      echo "<div class='container'><h6 style='color:red;'>Usuario já cadastrado</h6></div>";
 
   }
 

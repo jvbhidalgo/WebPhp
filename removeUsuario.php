@@ -103,6 +103,7 @@
     $result->execute($params);
 
     echo "Usuario: $nome, Removido com sucesso!";
+    header("Refresh:0");
     }
   include("removeUsuario.html");
   ?>

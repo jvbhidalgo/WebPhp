@@ -64,7 +64,7 @@
     
   }
 
-  if(isset($_POST['editar'])){
+  if(isset($_POST['editar']) and $_POST['nome'] <> ''){
 
     $nome          = mb_strtoupper($func->limpaEspecial($_POST["nome"]));
     $email         = $_POST["email"];

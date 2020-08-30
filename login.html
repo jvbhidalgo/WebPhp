@@ -5,7 +5,11 @@
   <form id="cad" class="form-group mt-4" method="POST">
     <input type="text"class="form-control"  placeholder="Login" name="login"></br>
     <input type="password"class="form-control"  placeholder="Senha" name="senha"></br>
-    <button type="submit" class="btn btn-primary mb-4" name="cada">Login</button>
+    <input type="text" id="error" value="<?php echo $error ?>" style="display:none;">
+    <button type="submit" class="btn btn-primary mb-4" name="cada" onclick="exibeAlerta()">Login</button>
+    <div class="row">
+    <h5 style="display: none;color:red;" id="usuc">Usuário não encontrado</h5>
+    </div>
   </form>
   <button class="btn btn-primary mb-4"><a style="color: white; text-decoration: none;"
     href="index.html">Voltar</a></button>

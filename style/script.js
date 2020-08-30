@@ -84,7 +84,15 @@ window.onload = exibeAlerta;
 
 function exibeAlerta() {
 
-    var err = document.getElementById('error').value;
+    var err,
+    element = document.getElementById('error');
+    if (element != null) {
+        err = element.value;
+    }
+    else {
+        err = null;
+    }
+    
     if(err == 1){
         document.getElementById('usuc').style.display = 'block';
     }

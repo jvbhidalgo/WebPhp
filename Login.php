@@ -2,10 +2,11 @@
   session_start();
   include("classes/connection.php");
   include("autoload.html");
-  include("login.html");
 
   $bd = new Banco();
-  
+
+  $error = 0;
+
   if (isset($_POST['cada'])){
     $nome = $_POST["login"];
     $pass = $_POST["senha"];
@@ -25,10 +26,10 @@
       $bd->Redirect("sucesso.php");
     }
     else
-     echo 'Usuário não cadastrado no sistema';
+     $error = 1;
     
   }
 
 
-  
+  include("login.html");
 ?>
