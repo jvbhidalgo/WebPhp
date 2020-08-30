@@ -1,0 +1,24 @@
+<title>Cadastro</title>
+</head>
+<body>
+
+ <form id="procura" method="post" action="">
+   <input type="text" placeholder="Procurar um Usuário" name="proc" required>
+   <button type="submit" name="procura">Procurar</button>
+ </form>
+
+ <form id="editar" name="editar" method="post" action="">
+  <input type="text" value="<?php echo $nome ?>" name="nome" readonly><br/>
+  <input type="text" value="<?php echo $email ?>" name="email"><br/>
+  <input type="text" value="<?php echo $telefone ?>" name="telefone" class="telefone"><br/>
+  <input type="text" value="<?php echo $cep ?>" name="cep" id="cep"><br/>
+  <input type="text" value="<?php echo $rua ?>" name="rua" id="rua" readonly><br/>
+  <input type="text" value="<?php echo $bairro ?>" name="bairro" id="bairro" readonly><br/>
+  <input type="text" value="<?php echo $numero ?>" name="numero"><br/>
+  <input type="text" value="<?php echo $cidade ?>" name="cidade" readonly><br/>
+  <input type="text" value="<?php echo $uf ?>" name="uf" readonly><br/>
+  <button type="submit" name="editar">Editar</button>
+ </form>
+
+</body>
+</html>
