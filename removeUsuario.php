@@ -102,7 +102,10 @@
     );
     $result->execute($params);
 
-    echo "<div class='container'><h6 style='color:green;'>Usuario: $nome, removido com sucesso!</h6></div>";
+    header("Refresh:0");
+    echo '<script language="javascript">';
+    echo 'alert("Usuário excluido")';
+    echo '</script>';
     
     }
   include("removeUsuario.html");

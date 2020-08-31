@@ -3,7 +3,6 @@
   include("classes/connection.php");
   include("classes/Funcao.class.php");
   include("autoload.html");
-  include("cadastro.html");
 
   $bd   = new Banco();
   $func = new Funcao();
@@ -50,11 +49,12 @@
       );
       $result->execute($params);
 
-      echo "<div class='container'><h6 style='color:green;'>Usuario: $nome, Cadastrado com sucesso!</h6></div>";
+      echo "<div style='text-align:center;'><h6 style='color:green;'>Usuario: $nome, Cadastrado com sucesso!</h6></div>";
     }
     else
-      echo "<div class='container'><h6 style='color:red;'>Usuario já cadastrado</h6></div>";
+      echo "<div style='text-align:center;'><h6 style='color:red;'>Usuario já cadastrado</h6></div>";
 
   }
 
+  include("cadastro.html");
 ?>
