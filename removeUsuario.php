@@ -102,8 +102,8 @@
     );
     $result->execute($params);
 
-    echo "Usuario: $nome, Removido com sucesso!";
-    header("Refresh:0");
+    echo "<div class='container'><h6 style='color:green;'>Usuario: $nome, removido com sucesso!</h6></div>";
+    
     }
   include("removeUsuario.html");
   ?>

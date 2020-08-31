@@ -105,8 +105,9 @@
       'id'         => $id
     );
     $result->execute($params);
+    
+    echo "<div style='text-align:center;'><h6 style='color:green;'>Usuario: $nome, Atualizado com sucesso!</h6></div>";
 
-    echo "Usuario: $nome, atualizado com sucesso!";
   }
   include("procuraUsuario.html");
   ?>

@@ -50,7 +50,7 @@
       );
       $result->execute($params);
 
-      echo "<div class='container'><h6 style='color:green;'>Usuario: $nome, Cadastrado com sucesso!</h6><div>";
+      echo "<div class='container'><h6 style='color:green;'>Usuario: $nome, Cadastrado com sucesso!</h6></div>";
     }
     else
       echo "<div class='container'><h6 style='color:red;'>Usuario já cadastrado</h6></div>";
