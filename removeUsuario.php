@@ -68,7 +68,7 @@
     }
   }
 
-  if(isset($_POST['remove'])){
+  if(isset($_POST['remove']) and $_POST['nome'] <> ''){
 
     $nome          = mb_strtoupper($func->limpaEspecial($_POST["nome"]));
     $email         = $_POST["email"];
