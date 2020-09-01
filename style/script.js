@@ -99,3 +99,9 @@ function exibeAlerta() {
 
 }
 
+
+$(document).ready(function() {
+    $("#onlynum").keyup(function() {
+        $("#onlynum").val(this.value.match(/[0-9]*/));
+    });
+  });
