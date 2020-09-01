@@ -41,7 +41,7 @@
       
       $txtusu = "SELECT USULOGIN,USUNOME,USUMAIL,USUFONE,USUCEP,
                         USURUA,USUBAIRRO,USUCIDA,USUESTA,USUENDN
-                  FROM USUCAD 
+                   FROM USUCAD 
                   WHERE USUID = :id";
       $result = $con->prepare($txtusu);
       $params = array(
@@ -91,8 +91,9 @@
 
     $id = $procura['USUID'];
 
-    $sql = "DELETE FROM USUCAD
-                  WHERE USUID = :id";
+    $sql = "DELETE 
+              FROM USUCAD
+             WHERE USUID = :id";
     $result = $con->prepare($sql);
       
     $params = array(
