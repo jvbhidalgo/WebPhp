@@ -21,13 +21,11 @@
 
   if (isset($_POST['procura'])){
 
-    
-
     $nome_procura = $_POST["proc"];
     
     $txtprocura = "SELECT USUID
                      FROM USUCAD 
-                    WHERE USUNOME LIKE :nome";
+                    WHERE USULOGIN LIKE :nome";
     $result = $con->prepare($txtprocura);
     
     $params = array(

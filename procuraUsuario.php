@@ -23,7 +23,7 @@
     
     $txtprocura = "SELECT USUID
                      FROM USUCAD 
-                    WHERE USUNOME LIKE :nome";
+                    WHERE USULOGIN LIKE :nome";
     $result = $con->prepare($txtprocura);
     
     $params = array(
