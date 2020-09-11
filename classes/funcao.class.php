@@ -13,8 +13,7 @@ class Funcao {
     $str = preg_replace('/[^a-z0-9]/i', ' ', $str);
     $str = preg_replace('/_+/', ' ', $str); // ideia do Bacco :)
     return $str;
-}
-
+  }
 
 }
 ?>

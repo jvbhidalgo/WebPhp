@@ -80,4 +80,28 @@ $(document).ready(function(){
   $("#cep").mask("00000-000")
 });
 
-       
+window.onload = exibeAlerta;
+
+function exibeAlerta() {
+
+    var err,
+    element = document.getElementById('error');
+    if (element != null) {
+        err = element.value;
+    }
+    else {
+        err = null;
+    }
+    
+    if(err == 1){
+        document.getElementById('usuc').style.display = 'block';
+    }
+
+}
+
+
+$(document).ready(function() {
+    $("#onlynum").keyup(function() {
+        $("#onlynum").val(this.value.match(/[0-9]*/));
+    });
+  });

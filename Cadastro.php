@@ -3,7 +3,6 @@
   include("classes/connection.php");
   include("classes/Funcao.class.php");
   include("autoload.html");
-  include("cadastro.html");
 
   $bd   = new Banco();
   $func = new Funcao();
@@ -13,8 +12,8 @@
     $nome          = mb_strtoupper($func->limpaEspecial($_POST["nome"]));
     $pass          = $_POST["senha"];
     $email         = $_POST["email"];
-    $telefone      = $_POST["telefone"];
-    $cep           = $_POST["cep"];
+    $telefone      = str_replace(' ','',$func->limpaEspecial($_POST["telefone"]));
+    $cep           = str_replace(' ','',$func->limpaEspecial($_POST["cep"]));
     $uf            = $_POST["uf"];
     $bairro        = $_POST["bairro"];
     $cidade        = $_POST["cidade"];
@@ -50,11 +49,12 @@
       );
       $result->execute($params);
 
-      echo "Usuario: $nome, Cadastrado com sucesso!";
+      echo "<div style='text-align:center;'><h6 style='color:green;'>Usuario: $nome, Cadastrado com sucesso!</h6></div>";
     }
     else
-      echo "Usuario já cadastrado";
+      echo "<div style='text-align:center;'><h6 style='color:red;'>Usuario já cadastrado</h6></div>";
 
   }
 
+  include("cadastro.html");
 ?>

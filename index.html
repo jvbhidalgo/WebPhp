@@ -1,12 +1,38 @@
 <!DOCTYPE html>
 <html lang="en">
+
 <head>
-  <meta charset="UTF-8">
-  <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <title>Document</title>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <!-- Adicionando JQuery -->
+  <script src="https://code.jquery.com/jquery-3.4.1.min.js"
+    integrity="sha256-CSXorXvZcTkaix6Yvo6HppcZGetbYMGWSFlBw8HfCJo=" crossorigin="anonymous"></script>
+
+  <!-- Adicionando Javascript -->
+  <script src="style/script.js"></script>
+  <script src="style/jquery.mask.js"></script>
+
+  <!-- Adicionando Bootstrap -->
+  <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.5.2/css/bootstrap.min.css"
+    integrity="sha384-JcKb8q3iqJ61gNV9KGb8thSsNjpSL0n8PARn9HuZOnIxN0hoP+VmmDGMN5t9UJ0Z" crossorigin="anonymous" />
+  <title>Inicio</title>
 </head>
+
 <body>
-  <button><a href="cadastro.php">Cadastro</a></button>
-  <button><a href="Login.php">Login</a></button>
+  <div class="mt-4 container" style="text-align: center;">
+    <button class="btn btn-primary mb-4">
+      <a style="color: white; text-decoration: none" href="cadastro.php">Cadastro</a>
+    </button>
+    <button class="btn btn-primary mb-4">
+      <a style="color: white; text-decoration: none" href="Login.php">Login</a>
+    </button>
+    <button class="btn btn-primary mb-4">
+      <a style="color: white; text-decoration: none" href="procuraUsuario.php">Editar</a>
+    </button>
+    <button class="btn btn-primary mb-4">
+      <a style="color: white; text-decoration: none" href="removeUsuario.php">Remover</a>
+    </button>
+  </div>
 </body>
+
 </html>

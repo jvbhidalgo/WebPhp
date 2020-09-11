@@ -1,8 +1,8 @@
 <?php
   session_start();
   include("classes/connection.php");
-
-  $bd = new Banco();
+  include("classes/Funcao.class.php");
+  include("autoload.html");
   
   
   $id_usuario = $_SESSION['usuario'];
