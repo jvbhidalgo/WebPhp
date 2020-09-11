@@ -4,11 +4,8 @@
   include("classes/Funcao.class.php");
   include("autoload.html");
   
-
-  
   $func = new Funcao();
 
-  $error      = 0;
   $nome       = '';
   $email      = '';
   $telefone   = '';
@@ -20,7 +17,7 @@
   $numero     = '';
 
   if (isset($_POST['procura'])){
-
+    $error      = 0;
     $nome_procura = $_POST["proc"];
     
     $txtprocura = "SELECT USUID
@@ -29,11 +26,10 @@
     $result = $con->prepare($txtprocura);
     
     $params = array(
-      'nome'  => "%$nome_procura%"
+      'nome'  => $nome_procura
     );
     $result->execute($params);
     $procura = $result->fetch();
-    
     
     if($procura){
 
@@ -62,7 +58,6 @@
     }
     else{
       $error = 1;
-
     }
   }
 
@@ -106,6 +101,7 @@
     echo 'alert("Usuário excluido")';
     echo '</script>';
     
-    }
+  }
+  
   include("removeUsuario.html");
   ?>

@@ -17,8 +17,6 @@
   
   if (isset($_POST['procura'])){
 
-    
-
     $nome_procura = $_POST["proc"];
     
     $txtprocura = "SELECT USUID
@@ -27,7 +25,7 @@
     $result = $con->prepare($txtprocura);
     
     $params = array(
-      'nome'  => "%$nome_procura%"
+      'nome'  => $nome_procura
     );
     $result->execute($params);
     $procura = $result->fetch();
