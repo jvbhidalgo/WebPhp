@@ -3,7 +3,7 @@
 
 <body>
   <div class="mt-4" style="margin: auto; width: 40%;">
-    <p style="font-size:14px;display: none;color:red;" id="usuc">Usuário não encontrado</p>
+    
     <form id="procura" class="form-group" method="post" action="">
       <div class="row">
         <div class="col">
@@ -12,6 +12,9 @@
     </div>
     <div class="col">
       <button type="submit" class="btn btn-primary mb-4" name="procura" onclick="exibeAlerta()">Procurar</button>
+      <div class="popup" id="popupc">
+        <span class="popuptext" id="myPopup">Usuário não encontrado</span>
+      </div>
     </div>
     </div>
     </form>

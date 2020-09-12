@@ -80,8 +80,8 @@ $(document).ready(function(){
   $("#cep").mask("00000-000")
 });
 
-window.onload = exibeAlerta;
 
+window.onload = exibeAlerta;
 function exibeAlerta() {
 
     var err,
@@ -94,7 +94,8 @@ function exibeAlerta() {
     }
     
     if(err == 1){
-        document.getElementById('usuc').style.display = 'block';
+        var popup = document.getElementById("myPopup");
+        popup.classList.toggle("show");
     }
 
 }
