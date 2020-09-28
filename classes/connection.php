@@ -2,7 +2,7 @@
 
   $database_username = "root";
   $database_password = "";
-  $database_info = "mysql:host=localhost;dbname=primat";
+  $database_info = "mysql:host=localhost;dbname=testeiago";
   try
   {
       $con = new PDO($database_info, $database_username, $database_password);

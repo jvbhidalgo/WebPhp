@@ -14,7 +14,7 @@
   $cidade     = '';
   $uf         = '';
   $numero     = '';
-  
+
   if (isset($_POST['procura'])){
 
     $nome_procura = $_POST["proc"];
@@ -33,8 +33,9 @@
     
     if($procura){
 
-      $id_usuario = $procura['USUID'];
-      
+      $id_usuario               = $procura['USUID'];
+      $_SESSION['usuario']      = $id_usuario;
+
       $txtusu = "SELECT USULOGIN,USUNOME,USUMAIL,USUFONE,USUCEP,
                         USURUA,USUBAIRRO,USUCIDA,USUESTA,USUENDN
                   FROM USUCAD 
@@ -46,15 +47,16 @@
       $result->execute($params);
       $usuario = $result->fetch();
 
-      $nome       = $usuario['USUNOME'];
-      $email      = $usuario['USUMAIL'];
-      $telefone   = $usuario['USUFONE'];
-      $cep        = $usuario['USUCEP'];
-      $rua        = $usuario['USURUA'];
-      $bairro     = $usuario['USUBAIRRO'];
-      $cidade     = $usuario['USUCIDA'];
-      $uf         = $usuario['USUESTA'];
-      $numero     = $usuario['USUENDN'];
+      
+      $nome                     = $usuario['USUNOME'];
+      $email                    = $usuario['USUMAIL'];
+      $telefone                 = $usuario['USUFONE'];
+      $cep                      = $usuario['USUCEP'];
+      $rua                      = $usuario['USURUA'];
+      $bairro                   = $usuario['USUBAIRRO'];
+      $cidade                   = $usuario['USUCIDA'];
+      $uf                       = $usuario['USUESTA'];
+      $numero                   = $usuario['USUENDN'];
     }
     else{
       $error = 1;
@@ -64,6 +66,7 @@
 
   if(isset($_POST['editar']) and $_POST['nome'] <> ''){
 
+    $id_usuario  = $_SESSION['usuario'];
     $nome          = mb_strtoupper($func->limpaEspecial($_POST["nome"]));
     $email         = $_POST["email"];
     $telefone      = str_replace(' ','',$func->limpaEspecial($_POST["telefone"]));
@@ -74,18 +77,7 @@
     $rua           = $_POST["rua"];
     $numero        = $_POST["numero"];  
 
-    $txtprocura = "SELECT USUID
-                     FROM USUCAD 
-                    WHERE USUNOME LIKE :nome";
-    $result = $con->prepare($txtprocura);
-    
-    $params = array(
-      'nome'  => $nome
-    );
-    $result->execute($params);
-    $procura = $result->fetch();
-
-    $id = $procura['USUID'];
+    $id = $id_usuario;
 
     $sql = "CALL atualizaUsuario(:nome,:email,:telefone,:cep,:rua,:bairro,:cidade,:uf,:numero,:id)";
     $result = $con->prepare($sql);

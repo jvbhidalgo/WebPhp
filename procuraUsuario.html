@@ -27,8 +27,8 @@
       <input type="text" class="form-control" value="<?php echo $bairro ?>" name="bairro" id="bairro" readonly><br />
       <input type="number" class="form-control" max="9999" min="0" value="<?php echo $numero ?>" name="numero" maxlength="6"
              onkeypress="return this.value.length < 5;" oninput="if(this.value.length>=4) { this.value = this.value.slice(0,5); }"><br />
-      <input type="text" class="form-control" value="<?php echo $cidade ?>" name="cidade" readonly><br />
-      <input type="text" class="form-control" value="<?php echo $uf ?>" name="uf" readonly><br />
+      <input type="text" class="form-control" value="<?php echo $cidade ?>" id="cidade" name="cidade" readonly><br />
+      <input type="text" class="form-control" value="<?php echo $uf ?>" id="uf" name="uf" readonly><br />
       <button type="submit" class="btn btn-primary mb-4" name="editar">Editar</button>
     </form>
     <button class="btn btn-primary mb-4"><a style="color: white; text-decoration: none;"

@@ -20,7 +20,7 @@ CREATE TABLE `usucad` (
   `USUESTA` varchar(2) NOT NULL,
   `USUENDN` varchar(10) NOT NULL,
   `USUSENHA` varchar(20) NOT NULL
-) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4;
+)
 
 --
 -- Índices para tabela `usucad`
