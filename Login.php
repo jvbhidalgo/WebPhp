@@ -7,7 +7,7 @@
 
   $error = 0;
   
-  if ($_SESSION['usuario'] <> ''){
+  if (isset($_SESSION['usuario']) <> ''){
     $bd->Redirect("sucesso.php");
   }
   else{

@@ -15,54 +15,30 @@
   $uf         = '';
   $numero     = '';
 
-  if (isset($_POST['procura'])){
+  $id_usuario               = $_SESSION['usuario'];
 
-    $nome_procura = $_POST["proc"];
-    
-    $txtprocura = "SELECT USUID
-                     FROM USUCAD 
-                    WHERE USULOGIN LIKE :nome";
-    $result = $con->prepare($txtprocura);
-    
-    $params = array(
-      'nome'  => $nome_procura
-    );
-    $result->execute($params);
-    $procura = $result->fetch();
-    
-    
-    if($procura){
+  $txtusu = "SELECT USULOGIN,USUNOME,USUMAIL,USUFONE,USUCEP,
+                    USURUA,USUBAIRRO,USUCIDA,USUESTA,USUENDN
+              FROM USUCAD 
+              WHERE USUID = :id";
+  $result = $con->prepare($txtusu);
+  $params = array(
+    'id'  => $id_usuario
+  );
+  $result->execute($params);
+  $usuario = $result->fetch();
 
-      $id_usuario               = $procura['USUID'];
-      $_SESSION['usuario']      = $id_usuario;
-
-      $txtusu = "SELECT USULOGIN,USUNOME,USUMAIL,USUFONE,USUCEP,
-                        USURUA,USUBAIRRO,USUCIDA,USUESTA,USUENDN
-                  FROM USUCAD 
-                  WHERE USUID = :id";
-      $result = $con->prepare($txtusu);
-      $params = array(
-        'id'  => $id_usuario
-      );
-      $result->execute($params);
-      $usuario = $result->fetch();
-
-      
-      $nome                     = $usuario['USUNOME'];
-      $email                    = $usuario['USUMAIL'];
-      $telefone                 = $usuario['USUFONE'];
-      $cep                      = $usuario['USUCEP'];
-      $rua                      = $usuario['USURUA'];
-      $bairro                   = $usuario['USUBAIRRO'];
-      $cidade                   = $usuario['USUCIDA'];
-      $uf                       = $usuario['USUESTA'];
-      $numero                   = $usuario['USUENDN'];
-    }
-    else{
-      $error = 1;
-    }
+  
+  $nome                     = $usuario['USUNOME'];
+  $email                    = $usuario['USUMAIL'];
+  $telefone                 = $usuario['USUFONE'];
+  $cep                      = $usuario['USUCEP'];
+  $rua                      = $usuario['USURUA'];
+  $bairro                   = $usuario['USUBAIRRO'];
+  $cidade                   = $usuario['USUCIDA'];
+  $uf                       = $usuario['USUESTA'];
+  $numero                   = $usuario['USUENDN'];
     
-  }
 
   if(isset($_POST['editar']) and $_POST['nome'] <> ''){
 
