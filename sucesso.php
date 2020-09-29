@@ -4,8 +4,14 @@
   include("classes/Funcao.class.php");
   include("autoload.html");
   
+  $bd = new Banco();
   
   $id_usuario = $_SESSION['usuario'];
+
+  if (isset($_POST['logout'])){
+    $_SESSION['usuario'] = null;
+    $bd->Redirect("login.php");
+  }
 
   $txtusu = "SELECT USULOGIN,USUNOME,USUMAIL,USUFONE,USUCEP,
                     USURUA,USUBAIRRO,USUCIDA,USUESTA,USUENDN
@@ -27,6 +33,8 @@
   $cidade     = $usuario['USUCIDA'];
   $uf         = $usuario['USUESTA'];
   $numero     = $usuario['USUENDN'];
+  
+  
 
   include("sucesso.html");
 ?>
