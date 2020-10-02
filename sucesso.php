@@ -8,7 +8,7 @@
   
   $id_usuario = $_SESSION['usuario'];
 
-  if (isset($_POST['logout'])){
+  if (isset($_POST['logout'])) {
     $_SESSION['usuario'] = null;
     $bd->Redirect("login.php");
   }

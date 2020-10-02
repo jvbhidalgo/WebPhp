@@ -1,0 +1,51 @@
+<title>Listar</title>
+</head>
+
+<body>
+    <div class="container" style="margin-top: 50px;">
+        <form id="procura" class="form-group" method="post" action="">
+            <div class="row">
+                <div class="col">
+                    <input type="text" class="form-control" placeholder="Procurar um Usuário" name="proc" minlength="4"
+                        required>
+                    <input type="text" id="error" value="<?php echo $error ?>" style="display:none;">
+                </div>
+                <div class="col">
+                    <button type="submit" class="btn btn-primary mb-4" name="procura"
+                        onclick="exibeAlerta()">Procurar</button>
+                </div>
+                <div class="container">
+                <?php
+                  if(isset($_POST['procura'])){
+                    $add = 0;
+                    foreach($procura as $aux){
+            
+                        $id_usuario = $aux['USUID'];
+            
+                        $txtusu = "SELECT USULOGIN,USUNOME,USUMAIL,USUFONE,USUCEP,
+                                                            USURUA,USUBAIRRO,USUCIDA,USUESTA,USUENDN
+                                                FROM USUCAD 
+                                                WHERE USUID = :id";
+                        $result = $con->prepare($txtusu);
+                        $params = array(
+                            'id'  => $id_usuario
+                        );
+                        $result->execute($params);
+                        $usuario = $result->fetch();
+                
+                        $add = $add + 1;
+                        $nome = $usuario['USULOGIN'];
+                        echo '<input readonly class="form-control" value="'. $nome . '" style="margin-bottom: 20px;">';
+                    }
+                }
+               ?>
+                <button class="btn btn-primary mb-4"><a style="color: white; text-decoration: none;"
+                href="index.php">Voltar</a></button>
+                </div>
+                
+            </div>
+        </form>
+    </div>
+</body>
+
+</html>

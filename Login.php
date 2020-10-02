@@ -16,7 +16,10 @@
       $nome = $_POST["login"];
       $pass = $_POST["senha"];
 
-      $sql = "SELECT usuid FROM usucad WHERE usulogin = :name and ususenha = :senha";
+      $sql = "SELECT USUID 
+                FROM USUCAD 
+               WHERE USULOGIN = :name 
+                 and USUSENHA = :senha";
       $result = $con->prepare($sql);
       
       $params = array(
@@ -27,7 +30,7 @@
       $usuario = $result->fetch();
 
       if ($usuario){
-        $_SESSION['usuario'] = $usuario['usuid'];
+        $_SESSION['usuario'] = $usuario['USUID'];
         $bd->Redirect("sucesso.php");
       }
       else

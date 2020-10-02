@@ -15,12 +15,12 @@
   $uf         = '';
   $numero     = '';
 
-  $id_usuario               = $_SESSION['usuario'];
+  $id_usuario = $_SESSION['usuario'];
 
   $txtusu = "SELECT USULOGIN,USUNOME,USUMAIL,USUFONE,USUCEP,
                     USURUA,USUBAIRRO,USUCIDA,USUESTA,USUENDN
               FROM USUCAD 
-              WHERE USUID = :id";
+             WHERE USUID = :id";
   $result = $con->prepare($txtusu);
   $params = array(
     'id'  => $id_usuario
@@ -72,7 +72,10 @@
     );
     $result->execute($params);
     
-    echo "<div style='text-align:center;'><h6 style='color:green;'>Usuario: $nome, Atualizado com sucesso!</h6></div>";
+    header("Refresh:0");
+    echo '<script language="javascript">';
+    echo 'alert("Usuário atualizado!")';
+    echo '</script>';
 
   }
   include("procuraUsuario.html");
