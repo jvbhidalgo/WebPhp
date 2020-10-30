@@ -75,14 +75,8 @@
     );
     $result->execute($params);
 
-    header("Refresh:0");
-    echo '<script language="javascript">';
-    echo 'alert("Usuário excluido")';
-    echo '</script>';
-
     $_SESSION['usuario'] = null;
     $bd->Redirect("index.php");
-    header("Refresh:0");
     echo '<script language="javascript">';
     echo 'alert("Usuário excluido")';
     echo '</script>';

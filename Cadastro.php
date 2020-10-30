@@ -3,11 +3,14 @@
   include("classes/connection.php");
   include("classes/Funcao.class.php");
   include("autoload.html");
-
+  
   $bd   = new Banco();
   $func = new Funcao();
   
+  $retorna = '';
+  
   if (isset($_POST['cada'])){
+    
     $login         = $_POST["login"];
     $nome          = mb_strtoupper($func->limpaEspecial($_POST["nome"]));
     $pass          = $_POST["senha"];
@@ -49,12 +52,11 @@
       );
       $result->execute($params);
 
-      echo "<div style='text-align:center;'><h6 style='color:green;'>Usuario: $nome, Cadastrado com sucesso!</h6></div>";
+      $retorna = 'Usuário cadastrado com sucesso!';
     }
     else
-      echo "<div style='text-align:center;'><h6 style='color:red;'>Usuario já cadastrado</h6></div>";
+      $retorna = 'Usuário já cadastrado!';
 
   }
-
   include("cadastro.html");
 ?>

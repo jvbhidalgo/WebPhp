@@ -105,4 +105,8 @@ $(document).ready(function() {
     $("#onlynum").keyup(function() {
         $("#onlynum").val(this.value.match(/[0-9]*/));
     });
-  });
+});
+
+$('#myModal').on('shown.bs.modal', function () {
+    $('#myInput').trigger('focus')
+  })

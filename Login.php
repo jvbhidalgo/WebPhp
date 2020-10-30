@@ -34,7 +34,7 @@
         $bd->Redirect("sucesso.php");
       }
       else
-      $error = 1;
+        $error = 1;
       
     }
   }
