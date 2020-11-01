@@ -11,8 +11,8 @@
 		$nome_procura = "%".$_POST["proc"]."%";
 
 		$txtprocura = "SELECT USUID
-									   FROM USUCAD 
-								    WHERE USULOGIN LIKE :nome";
+						 FROM USUCAD 
+				        WHERE USULOGIN LIKE :nome";
 		$result = $con->prepare($txtprocura);
 
 		$params = array(

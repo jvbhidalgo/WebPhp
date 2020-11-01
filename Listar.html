@@ -17,12 +17,12 @@
                 <div class="container">
                 <?php
                   if(isset($_POST['procura'])){
-                    $add = 0;
+                    
                     foreach($procura as $aux){
             
                         $id_usuario = $aux['USUID'];
             
-                        $txtusu = "SELECT USULOGIN,USUNOME,USUMAIL,USUFONE,USUCEP,USURUA,USUBAIRRO,USUCIDA,USUESTA,USUENDN
+                        $txtusu = "SELECT USULOGIN
                                      FROM USUCAD 
                                     WHERE USUID = :id";
                         $result = $con->prepare($txtusu);
@@ -32,7 +32,6 @@
                         $result->execute($params);
                         $usuario = $result->fetch();
                 
-                        $add = $add + 1;
                         $nome = $usuario['USULOGIN'];
                         echo '<input readonly class="form-control" value="'. $nome . '" style="margin-bottom: 20px;">';
                     }
