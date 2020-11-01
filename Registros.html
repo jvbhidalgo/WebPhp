@@ -1,0 +1,44 @@
+<title>Registros</title>
+</head>
+
+<body>
+    <div style="margin:auto; width:40%">
+        <form id="inserir" class="form-group mt-4" method="POST">
+            <input type="number" class="form-control" style="width: auto;" placeholder="Insira seu peso atual"
+                name="valor" required></br>
+            <input name="comp" class="form-control mb-4" style="width: auto;" type="text"
+                value="<?php echo date('d/m/Y') ?>" readonly>
+            <button type="submit" class="btn btn-primary mb-4" name="inserir">Inserir</button>
+            <div class="row">
+            </div>
+        </form>
+
+        <form name="competencia" method="POST">
+            <h5>Média mensal</h5>
+            <h6>Selecione a competencia</h6>
+            <select id="compet" name="compet" style="width: auto" class="form-control mb-4">
+                <option value=""" selected>Selecione uma competencia</option>
+                <option value="01/2020" >01/2020</option>
+                <option value="02/2020">02/2020</option>
+                <option value="03/2020">03/2020</option>
+                <option value="04/2020">04/2020</option>
+                <option value="05/2020">05/2020</option>
+                <option value="06/2020">06/2020</option>
+                <option value="07/2020">07/2020</option>
+                <option value="08/2020">08/2020</option>
+                <option value="09/2020">09/2020</option>
+                <option value="10/2020" >10/2020</option>
+                <option value="11/2020">11/2020</option>
+                <option value="12/2020">12/2020</option>
+            </select>
+            <button type="submit" name="competencia" class="btn btn-primary mb-4" >Exibir Resultado</button>
+            
+            <input type="number" class="form-control" style="width: auto;"  readonly
+                value="<?php echo $retorno ?>"></br>
+        </form>
+        <button class="btn btn-primary mb-4"><a style="color: white; text-decoration: none;"
+                href="sucesso.php">Voltar</a></button>
+    </div>
+</body>
+
+</html>

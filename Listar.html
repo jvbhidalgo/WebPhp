@@ -22,10 +22,9 @@
             
                         $id_usuario = $aux['USUID'];
             
-                        $txtusu = "SELECT USULOGIN,USUNOME,USUMAIL,USUFONE,USUCEP,
-                                                            USURUA,USUBAIRRO,USUCIDA,USUESTA,USUENDN
-                                                FROM USUCAD 
-                                                WHERE USUID = :id";
+                        $txtusu = "SELECT USULOGIN,USUNOME,USUMAIL,USUFONE,USUCEP,USURUA,USUBAIRRO,USUCIDA,USUESTA,USUENDN
+                                     FROM USUCAD 
+                                    WHERE USUID = :id";
                         $result = $con->prepare($txtusu);
                         $params = array(
                             'id'  => $id_usuario

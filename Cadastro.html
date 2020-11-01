@@ -35,21 +35,34 @@
       <input type="password" class="form-control" placeholder="Senha" name="senha" required><br />
       <input type="password" class="form-control" placeholder="Confirmar Senha" name="csenha" required><br />
       <button type="submit" id="cada" name="cada" class="btn btn-primary mb-4" data-toggle="modal"  data-target="#exampleModal">Cadastrar</button>
-      <div class="modal fade" id="exampleModal" tabindex="-1" role="dialog" aria-labelledby="exampleModalLabel" aria-hidden="true">
-        <div class="modal-dialog" role="document">
-          <div class="modal-content">
-            <div class="modal-header">
-              <h5 class="modal-title" id="exampleModalLabel"><?php echo $retorna ?></h5>
-              <button type="button" class="close" data-dismiss="modal" aria-label="Close">
-                <span aria-hidden="true">&times;</span>
-              </button>
-            </div>
-            <div class="modal-footer">
-              <button type="button" class="btn btn-primary" ><a href="index.php" style="color:white">OK</a></button>
+        <div class="modal fade" id="exampleModal" tabindex="-1" role="dialog" aria-labelledby="exampleModalLabel" aria-hidden="true">
+          <div class="modal-dialog" role="document">
+            <div class="modal-content">
+              <div class="modal-header">
+                <h5 class="modal-title" id="exampleModalLabel">
+                  <?php 
+                  if ($retorna == ''){
+                    echo 'Existem campos não preenchidos ou inválidos';
+                  }else
+                    echo $retorna;
+                  ?>
+                </h5>
+                <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+                  <span aria-hidden="true">&times;</span>
+                </button>
+              </div>
+              <div class="modal-footer">
+                <?php 
+                  if ($retorna == ''){
+                    echo '<button type="button" class="btn btn-secondary" data-dismiss="modal">OK</button>';
+                  }else
+                    echo '<button type="button" class="btn btn-primary" ><a href="index.php" style="color:white">OK</a></button>';
+                  ?>
+                
+              </div>
             </div>
           </div>
         </div>
-      </div>
     </form>
     <button class="btn btn-primary mb-4"><a href="index.php" style="color:white">Voltar</a></button>
   </div>

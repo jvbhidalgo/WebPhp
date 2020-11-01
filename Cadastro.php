@@ -8,7 +8,7 @@
   $func = new Funcao();
   
   $retorna = '';
-  
+  $div = '';
   if (isset($_POST['cada'])){
     
     $login         = $_POST["login"];
@@ -56,7 +56,6 @@
     }
     else
       $retorna = 'Usuário já cadastrado!';
-
   }
   include("cadastro.html");
 ?>
