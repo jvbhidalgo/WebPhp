@@ -2,8 +2,8 @@
 </head>
 
 <body>
-  <div class="container" style="margin-top: 50px;">
-    <form id="procura" class="form-group" method="post" action="">
+  <div class="container mt-4">
+    <form id="procura" class="form-group" method="post" onSubmit="return false;">
       <div class="row">
         <div class="col">
           <input type="text" class="form-control" id="palavra" placeholder="Procurar um Usuário" name="proc"
@@ -11,19 +11,19 @@
           <input type="text" id="error" value="<?php echo $error ?>" style="display:none;">
         </div>
         <div class="col">
-          <button type="button" class="btn btn-primary mb-4" name="procura" id="buscar"
-            onclick="exibeAlerta()">Procurar</button>
+          <button type="button" class="btn btn-primary mb-4" id="buscar">Procurar</button>
         </div>
-        <div class="container">
-          <div id="dados">
-
-          </div>
-          <button class="btn btn-primary mb-4"><a style="color: white; text-decoration: none;"
-              href="index.php">Voltar</a></button>
-        </div>
+    </form>
+    <div class="container">
+      <div id="dados">
 
       </div>
-    </form>
+      <button class="btn btn-primary mb-4"><a style="color: white; text-decoration: none;"
+          href="index.php">Voltar</a></button>
+    </div>
+
+  </div>
+
   </div>
   <script>
 
@@ -33,9 +33,6 @@
           type: 'POST',
           dataType: 'html',
           url: 'ListaUsuario.php',
-          beforeSend: function () {
-            $('#dados').html("Carregando...");
-          },
           data: { palavra: palavra },
           success: function (msg) {
             $("#dados").html(msg);
@@ -45,6 +42,18 @@
 
     $('#palavra').blur(function () {
       buscar($("#palavra").val())
+    });
+
+    $('#buscar').click(function () {
+      buscar($("#palavra").val())
+    });
+
+    var input = document.getElementById("palavra");
+    input.addEventListener("keyup", function(event) {
+      if (event.keyCode === 13) {
+      event.preventDefault();
+      document.getElementById("buscar").click();
+      }
     });
 
   </script>

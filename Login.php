@@ -7,7 +7,7 @@
   $func = new Funcao();
 
   $error = 0;
-  if (($_SESSION['usuario']) <> ''){
+  if (isset($_SESSION['usuario']) <> ''){
     $func->Redirect("sucesso.php");
   }
   else{
