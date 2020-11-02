@@ -6,37 +6,18 @@
         <form id="procura" class="form-group" method="post" action="">
             <div class="row">
                 <div class="col">
-                    <input type="text" class="form-control" placeholder="Procurar um Usuário" name="proc" minlength="4"
+                    <input type="text" class="form-control"  id="palavra" placeholder="Procurar um Usuário" name="proc" minlength="4"
                         required>
                     <input type="text" id="error" value="<?php echo $error ?>" style="display:none;">
                 </div>
                 <div class="col">
-                    <button type="submit" class="btn btn-primary mb-4" name="procura"
+                    <button type="button" class="btn btn-primary mb-4" name="procura" id="buscar"
                         onclick="exibeAlerta()">Procurar</button>
                 </div>
                 <div class="container">
-                <?php
-                  if(isset($_POST['procura'])){
-                    
-                    foreach($procura as $aux){
-            
-                        $id_usuario = $aux['USUID'];
-            
-                        $txtusu = "SELECT USULOGIN
-                                     FROM USUCAD 
-                                    WHERE USUID = :id";
-                        $result = $con->prepare($txtusu);
-                        $params = array(
-                            'id'  => $id_usuario
-                        );
-                        $result->execute($params);
-                        $usuario = $result->fetch();
-                
-                        $nome = $usuario['USULOGIN'];
-                        echo '<input readonly class="form-control" value="'. $nome . '" style="margin-bottom: 20px;">';
-                    }
-                }
-               ?>
+                <div id="dados">
+
+                </div>
                 <button class="btn btn-primary mb-4"><a style="color: white; text-decoration: none;"
                 href="index.php">Voltar</a></button>
                 </div>
@@ -44,6 +25,29 @@
             </div>
         </form>
     </div>
+    <script>
+
+        function buscar(palavra){
+            $.ajax
+                    ({
+                        type: 'POST',
+                        dataType: 'html',
+                        url: 'ListaUsuario.php',
+                        beforeSend: function (){
+                            $('#dados').html("Carregando...");
+                        },
+                        data: {palavra: palavra},
+                        success: function (msg){
+                            $("#dados").html(msg);
+                        }
+                    });
+        }
+        
+        $('#buscar').click(function (){
+            buscar($("#palavra").val())
+        });
+        
+    </script>
 </body>
 
 </html>
