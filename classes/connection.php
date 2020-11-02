@@ -11,27 +11,5 @@
   {
       echo 'FALHOU';
   }
-  
-  class Banco{
-
-
-    function retornaLinha($resultado){
-      
-      $ret = mysqli_num_rows($resultado);
-
-      if ($ret > 0 ){
-        return true;
-      }
-      else
-        return false;
-    }
-
-    function Redirect($url, $permanent = false){
-      header('Location: ' . $url, true, $permanent ? 301 : 302);
-      exit();
-    }
-
-  }
-  
 
 ?>

@@ -3,8 +3,6 @@
   include("classes/connection.php");
   include("classes/Funcao.class.php");
   include("autoload.html");
-  
-  $bd   = new Banco();
 
   $id_usuario = $_SESSION['usuario'];
 

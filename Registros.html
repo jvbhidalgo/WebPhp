@@ -17,8 +17,8 @@
             <h5>Média mensal</h5>
             <h6>Selecione a competencia</h6>
             <select id="compet" name="compet" style="width: auto" class="form-control mb-4">
-                <option value=""" selected>Selecione uma competencia</option>
-                <option value="01/2020" >01/2020</option>
+                <option value="" selected>Selecione uma competencia</option>
+                <option value="01/2020">01/2020</option>
                 <option value="02/2020">02/2020</option>
                 <option value="03/2020">03/2020</option>
                 <option value="04/2020">04/2020</option>
@@ -27,18 +27,39 @@
                 <option value="07/2020">07/2020</option>
                 <option value="08/2020">08/2020</option>
                 <option value="09/2020">09/2020</option>
-                <option value="10/2020" >10/2020</option>
+                <option value="10/2020">10/2020</option>
                 <option value="11/2020">11/2020</option>
                 <option value="12/2020">12/2020</option>
             </select>
-            <button type="submit" name="competencia" class="btn btn-primary mb-4" >Exibir Resultado</button>
-            
-            <input type="number" class="form-control" style="width: auto;"  readonly
-                value="<?php echo round($retorno,2) ?>"></br>
+            <button type="button" name="competencia" class="btn btn-primary mb-4">Exibir Resultado</button>
+
+            <input type="text" id="resulto" class="form-control" style="width: auto;" readonly value=""></br>
         </form>
         <button class="btn btn-primary mb-4"><a style="color: white; text-decoration: none;"
                 href="sucesso.php">Voltar</a></button>
     </div>
+
+    <script>
+        function exibeResultado(compet) {
+          $.ajax
+            ({
+                type: 'POST',
+                dataType: 'html',
+                url: 'RetornaMedia.php',
+                beforeSend: function () {
+                    $('#resulto').val("Carregando...");
+                },
+                data: { compet: compet },
+                success: function (msg) {
+                    $("#resulto").val(msg);
+                }
+            });
+        }
+
+        $('#compet').blur(function () {
+          exibeResultado($("#compet").val())
+        });
+    </script>
 </body>
 
 </html>

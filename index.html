@@ -20,9 +20,11 @@
 
 <body>
   <div class="mt-4 container" style="text-align: center;">
-    <button class="btn btn-primary mb-4">
-      <a style="color: white; text-decoration: none" href="cadastro.php">Cadastro</a>
-    </button>
+    <?php if ($_SESSION['usuario'] == ''){
+      echo '<button class="btn btn-primary mb-4">
+        <a style="color: white; text-decoration: none" href="cadastro.php">Cadastro</a>
+      </button>';
+    }?>
     <button class="btn btn-primary mb-4">
       <a style="color: white; text-decoration: none" href="Login.php">Login</a>
     </button>

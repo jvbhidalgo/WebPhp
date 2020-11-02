@@ -6,13 +6,13 @@
     <input type="text" class="form-control" value="<?php echo $nome ?>" readonly><br />
     <input type="text" class="form-control" value="<?php echo $email ?>" readonly><br />
     <input type="text" class="telefone form-control" value="<?php echo $telefone ?>" readonly><br />
-    <input type="text" class="form-control" id="cep"value="<?php echo $cep ?>" readonly><br />
+    <input type="text" class="form-control" id="cep" value="<?php echo $cep ?>" readonly><br />
     <input type="text" class="form-control" value="<?php echo $rua ?>" readonly><br />
     <input type="text" class="form-control" value="<?php echo $bairro ?>" readonly><br />
     <input type="text" class="form-control" value="<?php echo $numero ?>" readonly><br />
     <input type="text" class="form-control" value="<?php echo $cidade ?>" readonly><br />
     <input type="text" class="form-control" value="<?php echo $uf ?>" readonly><br />
-    
+
     <button class="btn btn-primary mb-4">
       <a style="color: white; text-decoration: none" href="procuraUsuario.php">Editar</a>
     </button>
@@ -24,8 +24,11 @@
     </button>
     <form method="post" action="" name="logout">
       <button type="submit" name="logout" id="logout" class="btn btn-danger mb-4">Logout</button>
+      <button type="button" class="btn btn-danger mb-4"><a style="text-decoration: none; color:white;" href="index.php">Voltar</a></button>
     </form>
+
   </div>
+
 </body>
 
 </html>

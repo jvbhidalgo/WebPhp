@@ -4,7 +4,6 @@
   include("classes/Funcao.class.php");
   include("autoload.html");
   
-  $bd   = new Banco();
   $func = new Funcao();
   
   $retorna = '';

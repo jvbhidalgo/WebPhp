@@ -3,14 +3,14 @@
   include("classes/connection.php");
   include("classes/Funcao.class.php");
   include("autoload.html");
-  
-  $bd = new Banco();
+
+  $func = new Funcao();
   
   $id_usuario = $_SESSION['usuario'];
 
   if (isset($_POST['logout'])) {
     $_SESSION['usuario'] = null;
-    $bd->Redirect("login.php");
+    $func->Redirect("login.php");
   }
 
   $txtusu = "SELECT USULOGIN,USUNOME,USUMAIL,USUFONE,USUCEP,

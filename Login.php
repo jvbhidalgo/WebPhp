@@ -1,14 +1,14 @@
 <?php
   session_start();
   include("classes/connection.php");
+  include("classes/funcao.class.php");
   include("autoload.html");
 
-  $bd = new Banco();
+  $func = new Funcao();
 
   $error = 0;
-  
-  if (isset($_SESSION['usuario']) <> ''){
-    $bd->Redirect("sucesso.php");
+  if (($_SESSION['usuario']) <> ''){
+    $func->Redirect("sucesso.php");
   }
   else{
 
@@ -31,7 +31,8 @@
 
       if ($usuario){
         $_SESSION['usuario'] = $usuario['USUID'];
-        $bd->Redirect("sucesso.php");
+
+        $func->Redirect("sucesso.php");
       }
       else
         $error = 1;

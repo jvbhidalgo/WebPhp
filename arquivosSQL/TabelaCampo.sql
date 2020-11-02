@@ -1,4 +1,4 @@
--- Banco de dados: `primat`
+-- Banco de dados: `Projeto`
 --
 
 -- --------------------------------------------------------
@@ -27,10 +27,6 @@ CREATE TABLE `usucad` (
 --
 ALTER TABLE `usucad`
   ADD PRIMARY KEY (`USUID`);
-
---
--- AUTO_INCREMENT de tabelas despejadas
---
 
 --
 -- AUTO_INCREMENT de tabela `usucad`

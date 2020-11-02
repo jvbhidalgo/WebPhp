@@ -4,7 +4,6 @@
   include("classes/Funcao.class.php");
   include("autoload.html");
   
-  $bd   = new Banco();
   $func = new Funcao();
 
   $nome       = '';
@@ -76,7 +75,7 @@
     $result->execute($params);
 
     $_SESSION['usuario'] = null;
-    $bd->Redirect("index.php");
+    $func->Redirect("index.php");
     echo '<script language="javascript">';
     echo 'alert("Usuário excluido")';
     echo '</script>';

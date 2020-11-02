@@ -18,10 +18,22 @@ $params = array(
 $result->execute($params);
 $procura = $result->fetchAll();
 
+$add = 0;
+
+echo '<table class="table">
+        <thead class="thead-dark">
+        <tr>
+            <th scope="col">LOGIN</th>
+            <th scope="col">NOME</th>
+            <th scope="col">CIDADE</th>
+            <th scope="col">ESTADO</th>
+        </tr>
+        </thead>';
 foreach($procura as $aux){
 
+    $add = $add + 1;
     $id_usuario = $aux['USUID'];
-    $txtusu = "SELECT USULOGIN
+    $txtusu = "SELECT USULOGIN,USUNOME,USUCIDA,USUESTA
                  FROM USUCAD 
                 WHERE USUID = :id";
     $result = $con->prepare($txtusu);
@@ -31,7 +43,19 @@ foreach($procura as $aux){
     $result->execute($params);
     $usuario = $result->fetch();
 
-    $nome = $usuario['USULOGIN'];
-    echo '<input readonly class="form-control" value="'. $nome . '" style="margin-bottom: 20px;">';
+    $nome  = $usuario['USUNOME'];
+    $login = $usuario['USULOGIN'];
+    $cid   = $usuario['USUCIDA'];
+    $uf    = $usuario['USUESTA'];
+    echo '
+          <tbody>
+            <tr>
+                <td>'. $login . '</td>
+                <td>'. $nome . '</td>
+                <td>'. $cid . '</td>
+                <td>'. $uf . '</td>
+            </tr>';
+        
 }
+echo '</table>';
 ?>                        
