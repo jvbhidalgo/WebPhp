@@ -39,31 +39,10 @@
   $uf         = $usuario['USUESTA'];
   $numero     = $usuario['USUENDN'];
 
-  if(isset($_POST['remove']) and $_POST['nome'] <> ''){
+  if(isset($_POST['remove'])){
 
-    $nome          = mb_strtoupper($func->limpaEspecial($_POST["nome"]));
-    $email         = $_POST["email"];
-    $telefone      = str_replace(' ','',$func->limpaEspecial($_POST["telefone"]));
-    $cep           = str_replace(' ','',$func->limpaEspecial($_POST["cep"]));
-    $uf            = $_POST["uf"];
-    $bairro        = $_POST["bairro"];
-    $cidade        = $_POST["cidade"];
-    $rua           = $_POST["rua"];
-    $numero        = $_POST["numero"];  
-
-    $txtprocura = "SELECT USUID
-                     FROM USUCAD 
-                    WHERE USUNOME LIKE :nome";
-    $result = $con->prepare($txtprocura);
+    $id = $_SESSION['usuario'];
     
-    $params = array(
-      'nome'  => $nome
-    );
-    $result->execute($params);
-    $procura = $result->fetch();
-
-    $id = $procura['USUID'];
-
     $sql = "DELETE 
               FROM USUCAD
              WHERE USUID = :id";
@@ -75,10 +54,10 @@
     $result->execute($params);
 
     $_SESSION['usuario'] = null;
-    $func->Redirect("index.php");
     echo '<script language="javascript">';
     echo 'alert("Usuário excluido")';
     echo '</script>';
+    $func->Redirect("index.php");
   }
   
   include("removeUsuario.html");
