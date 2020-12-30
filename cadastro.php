@@ -11,7 +11,7 @@
   if (isset($_POST['cada'])){
     
     $login         = $_POST["login"];
-    $nome          = mb_strtoupper($func->limpaEspecial($_POST["nome"]));
+    $nome          = $func->limpaEspecial($_POST["nome"]);
     $pass          = $_POST["senha"];
     $email         = $_POST["email"];
     $telefone      = str_replace(' ','',$func->limpaEspecial($_POST["telefone"]));
@@ -33,7 +33,7 @@
     $usuario = $result->fetch();
 
     if (!$usuario){
-      echo 'teste1';die;
+      
       $sql = "CALL cadastraUsuario(:login,:nome,:email,:telefone,:cep,:rua,:bairro,:cidade,:uf,:numero,:pass)";
       $result = $con->prepare($sql);
       
