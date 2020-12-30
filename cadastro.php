@@ -33,7 +33,7 @@
     $usuario = $result->fetch();
     
     if (!$usuario){
-      $sql = "CALL CadastraUsuario(:login,:nome,:email,:telefone,:cep,:rua,:bairro,:cidade,:uf,:numero,:pass)";
+      $sql = "CALL cadastraUsuario(:login,:nome,:email,:telefone,:cep,:rua,:bairro,:cidade,:uf,:numero,:pass)";
       $result = $con->prepare($sql);
       
       $params = array(
@@ -50,7 +50,7 @@
         'pass'       => $pass
       );
       $result->execute($params);
-
+      echo 'teste1';die;
       echo  ' <div class="modal container" tabindex="-1" role="dialog" style="display:block; width:30%;">
                 <div class="modal-dialog" role="document">
                   <div class="modal-content">
