@@ -55,7 +55,7 @@
 
     $id = $id_usuario;
 
-    $sql = "CALL atualizaUsuario(:nome,:email,:telefone,:cep,:rua,:bairro,:cidade,:uf,:numero,:id)";
+    $sql = "CALL AtualizaUsuario(:nome,:email,:telefone,:cep,:rua,:bairro,:cidade,:uf,:numero,:id)";
     $result = $con->prepare($sql);
       
     $params = array(

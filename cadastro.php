@@ -31,9 +31,9 @@
     );
     $result->execute($params);
     $usuario = $result->fetch();
-
+    
     if (!$usuario){
-      $sql = "CALL cadastraUsuario(:login,:nome,:email,:telefone,:cep,:rua,:bairro,:cidade,:uf,:numero,:pass)";
+      $sql = "CALL CadastraUsuario(:login,:nome,:email,:telefone,:cep,:rua,:bairro,:cidade,:uf,:numero,:pass)";
       $result = $con->prepare($sql);
       
       $params = array(
