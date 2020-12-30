@@ -74,5 +74,5 @@
     }
     
   }
-  include("Registros.html");
+  include("registros.html");
 ?>
