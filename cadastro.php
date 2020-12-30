@@ -11,7 +11,7 @@
   if (isset($_POST['cada'])){
     
     $login         = $_POST["login"];
-    $nome          = $func->limpaEspecial($_POST["nome"]);
+    $nome          = strtoupper($func->limpaEspecial($_POST["nome"]));
     $pass          = $_POST["senha"];
     $email         = $_POST["email"];
     $telefone      = str_replace(' ','',$func->limpaEspecial($_POST["telefone"]));
