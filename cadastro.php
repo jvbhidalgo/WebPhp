@@ -49,6 +49,8 @@
         'numero'     => $numero,
         'pass'       => $pass
       );
+      var_dump($params);
+      var_dump($sql);die;
       $result->execute($params);
 
       echo  ' <div class="modal container" tabindex="-1" role="dialog" style="display:block; width:30%;">
