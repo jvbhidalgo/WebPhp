@@ -1,7 +1,7 @@
 -- Banco de dados: `Projeto`
 --
 
--- --------------------------------------------------------
+--
 
 --
 -- Estrutura da tabela `usucad`
@@ -37,7 +37,7 @@ ALTER TABLE `usucad`
 
 
 
------------------TABELA REGUSU--------------------
+-- TABELA REGUSU
 
 -- Estrutura da tabela `REGUSU`
 CREATE TABLE `regusu` (
