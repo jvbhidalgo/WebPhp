@@ -8,8 +8,9 @@
   
   $retorna = '';
   $div = '';
+  echo 'teste2';
   if (isset($_POST['cada'])){
-    
+    echo 'teste1';die;
     $login         = $_POST["login"];
     $nome          = mb_strtoupper($func->limpaEspecial($_POST["nome"]));
     $pass          = $_POST["senha"];
@@ -50,7 +51,7 @@
         'pass'       => $pass
       );
       $result->execute($params);
-      echo 'teste1';die;
+      
       echo  ' <div class="modal container" tabindex="-1" role="dialog" style="display:block; width:30%;">
                 <div class="modal-dialog" role="document">
                   <div class="modal-content">
