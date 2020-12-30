@@ -43,7 +43,7 @@
   if(isset($_POST['editar']) and $_POST['nome'] <> ''){
 
     $id_usuario  = $_SESSION['usuario'];
-    $nome          = mb_strtoupper($func->limpaEspecial($_POST["nome"]));
+    $nome          = $func->limpaEspecial($_POST["nome"]);
     $email         = $_POST["email"];
     $telefone      = str_replace(' ','',$func->limpaEspecial($_POST["telefone"]));
     $cep           = str_replace(' ','',$func->limpaEspecial($_POST["cep"]));
@@ -59,7 +59,7 @@
     $result = $con->prepare($sql);
       
     $params = array(
-      'nome'       => $nome,
+      'nome'       => strtoupper($nome),
       'email'      => $email,
       'telefone'   => $telefone,
       'cep'        => $cep,
