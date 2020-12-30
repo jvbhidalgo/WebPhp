@@ -31,7 +31,7 @@
     );
     $result->execute($params);
     $usuario = $result->fetch();
-    
+
     if (!$usuario){
       $sql = "CALL cadastraUsuario(:login,:nome,:email,:telefone,:cep,:rua,:bairro,:cidade,:uf,:numero,:pass)";
       $result = $con->prepare($sql);
@@ -49,44 +49,10 @@
         'numero'     => $numero,
         'pass'       => $pass
       );
-      var_dump($params);
-      var_dump($sql);die;
       $result->execute($params);
 
-      echo  ' <div class="modal container" tabindex="-1" role="dialog" style="display:block; width:30%;">
-                <div class="modal-dialog" role="document">
-                  <div class="modal-content">
-                    <div class="modal-header">
-                      <h5 class="modal-title">Usuário Cadastrado!</h5>
-                      <button type="button" class="close" data-dismiss="modal" aria-label="Close">
-                        <span aria-hidden="true">&times;</span>
-                      </button>
-                    </div>
-                    <div class="modal-footer">
-                    <button class="btn btn-primary mb-4"><a style="color: white; text-decoration: none;"
-                    href="index.php">Ok</a></button>
-                    </div>
-                  </div>
-                </div>
-              </div>';
+      
     }
-    else
-      echo  '<div class="modal container" tabindex="-1" role="dialog" style="display:block; width:30%;">
-              <div class="modal-dialog" role="document">
-                <div class="modal-content">
-                  <div class="modal-header">
-                    <h5 class="modal-title" style="color:red;">Usuário já cadastrado!</h5>
-                    <button type="button" class="close" data-dismiss="modal" aria-label="Close">
-                      <span aria-hidden="true">&times;</span>
-                    </button>
-                  </div>
-                  <div class="modal-footer">
-                  <button class="btn btn-primary mb-4"><a style="color: white; text-decoration: none;"
-                  href="cadastro.php">Ok</a></button>
-                  </div>
-                </div>
-              </div>
-            </div>';
   }
   include("cadastro.html");
 ?>
