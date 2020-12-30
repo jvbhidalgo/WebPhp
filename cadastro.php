@@ -10,7 +10,7 @@
   $div = '';
   echo 'teste2';
   if (isset($_POST['cada'])){
-    echo 'teste1';die;
+    
     $login         = $_POST["login"];
     $nome          = mb_strtoupper($func->limpaEspecial($_POST["nome"]));
     $pass          = $_POST["senha"];
@@ -32,7 +32,7 @@
     );
     $result->execute($params);
     $usuario = $result->fetch();
-    
+    echo 'teste3';
     if (!$usuario){
       $sql = "CALL cadastraUsuario(:login,:nome,:email,:telefone,:cep,:rua,:bairro,:cidade,:uf,:numero,:pass)";
       $result = $con->prepare($sql);
@@ -50,8 +50,10 @@
         'numero'     => $numero,
         'pass'       => $pass
       );
+      echo 'teste34';
+
       $result->execute($params);
-      
+      echo 'teste5';die;
       echo  ' <div class="modal container" tabindex="-1" role="dialog" style="display:block; width:30%;">
                 <div class="modal-dialog" role="document">
                   <div class="modal-content">
