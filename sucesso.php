@@ -1,7 +1,7 @@
 <?php
   session_start();
   include("classes/connection.php");
-  include("classes/Funcao.class.php");
+  include("classes/funcao.class.php");
   include("autoload.html");
 
   $func = new Funcao();
