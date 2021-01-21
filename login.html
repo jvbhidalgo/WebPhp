@@ -2,17 +2,19 @@
 </head>
 <body>
   <div style="margin:auto; width:40%">
-  <p clas="mt-4" style="font-size:14px;display: none;color:red; text-align: center;" id="usuc">Senha incorreta ou usuário<br> não cadastrado no sistema</p>
   <form id="cad" class="form-group mt-4" method="POST">
     <input type="text"class="form-control"  placeholder="Login" name="login"></br>
     <input type="password"class="form-control"  placeholder="Senha" name="senha"></br>
     <input type="text" id="error" value="<?php echo $error ?>" style="display:none;">
     <button type="submit" class="btn btn-primary mb-4" name="cada" onclick="exibeAlerta()">Login</button>
+    <div class="popup" id="popupc">
+      <span class="popuptext" id="myPopup">Usuário não encontrado</span>
+    </div>
     <div class="row">
     </div>
   </form>
   <button class="btn btn-primary mb-4"><a style="color: white; text-decoration: none;"
-    href="index.html">Voltar</a></button>
+    href="index.php">Voltar</a></button>
 </div>
 </body>
 </html>

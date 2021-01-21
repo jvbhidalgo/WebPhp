@@ -35,3 +35,14 @@ CREATE OR REPLACE DEFINER=`root`@`localhost` PROCEDURE `AtualizaUsuario` (IN `no
                        USUENDN = numero
                  WHERE USUID = id;
   END$$
+
+DELIMITER $$
+CREATE OR REPLACE DEFINER=`root`@`localhost` PROCEDURE `insereValorDiario` (IN `id`           INT(5),
+                                                                            IN `competencia`  VARCHAR(10),
+                                                                            IN `valor`        float
+                                                                            )
+                                                                          
+  BEGIN
+    INSERT INTO REGUSU (REGIDUSU,REGCOMP,REGVDIA)
+                VALUES (id,competencia,valor);
+  END$$

@@ -1,11 +1,17 @@
 <?php
   session_start();
   include("classes/connection.php");
-  include("classes/Funcao.class.php");
+  include("classes/funcao.class.php");
   include("autoload.html");
-  
+
+  $func = new Funcao();
   
   $id_usuario = $_SESSION['usuario'];
+
+  if (isset($_POST['logout'])) {
+    $_SESSION['usuario'] = null;
+    $func->Redirect("login.php");
+  }
 
   $txtusu = "SELECT USULOGIN,USUNOME,USUMAIL,USUFONE,USUCEP,
                     USURUA,USUBAIRRO,USUCIDA,USUESTA,USUENDN
@@ -27,6 +33,8 @@
   $cidade     = $usuario['USUCIDA'];
   $uf         = $usuario['USUESTA'];
   $numero     = $usuario['USUENDN'];
+  
+  
 
   include("sucesso.html");
 ?>

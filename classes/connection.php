@@ -1,8 +1,8 @@
 <?php 
 
-  $database_username = "root";
-  $database_password = "";
-  $database_info = "mysql:host=localhost;dbname=primat";
+  $database_username = "ba97608f39dcac";
+  $database_password = "010cc935";
+  $database_info = "mysql:host=us-cdbr-east-02.cleardb.com;dbname=heroku_ff43c68a0daab53";
   try
   {
       $con = new PDO($database_info, $database_username, $database_password);
@@ -11,28 +11,5 @@
   {
       echo 'FALHOU';
   }
-  
-  class Banco{
-
-
-    function retornaLinha($resultado){
-      
-      $ret = mysqli_num_rows($resultado);
-
-      if ($ret > 0 ){
-        return true;
-      }
-      else
-        return false;
-    }
-
-    function Redirect($url, $permanent = false){
-      header('Location: ' . $url, true, $permanent ? 301 : 302);
-
-      exit();
-    }
-
-  }
-  
 
 ?>

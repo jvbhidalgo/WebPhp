@@ -1,7 +1,7 @@
--- Banco de dados: `primat`
+-- Banco de dados: `Projeto`
 --
 
--- --------------------------------------------------------
+--
 
 --
 -- Estrutura da tabela `usucad`
@@ -20,7 +20,7 @@ CREATE TABLE `usucad` (
   `USUESTA` varchar(2) NOT NULL,
   `USUENDN` varchar(10) NOT NULL,
   `USUSENHA` varchar(20) NOT NULL
-) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4;
+)
 
 --
 -- Índices para tabela `usucad`
@@ -29,16 +29,30 @@ ALTER TABLE `usucad`
   ADD PRIMARY KEY (`USUID`);
 
 --
--- AUTO_INCREMENT de tabelas despejadas
---
-
---
 -- AUTO_INCREMENT de tabela `usucad`
 --
 ALTER TABLE `usucad`
   MODIFY `USUID` int(5) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=23;
-COMMIT;
 
-/*!40101 SET CHARACTER_SET_CLIENT=@OLD_CHARACTER_SET_CLIENT */;
-/*!40101 SET CHARACTER_SET_RESULTS=@OLD_CHARACTER_SET_RESULTS */;
-/*!40101 SET COLLATION_CONNECTION=@OLD_COLLATION_CONNECTION */;
+
+
+
+-- TABELA REGUSU
+
+-- Estrutura da tabela `REGUSU`
+CREATE TABLE `regusu` (
+  `REGID` int(5) NOT NULL,
+  `REGIDUSU` int(5) NOT NULL,
+  `REGCOMP` varchar(10) NOT NULL,
+  `REGVDIA` float NOT NULL
+);
+
+ALTER TABLE `regusu`
+  ADD PRIMARY KEY (`REGID`),
+  ADD KEY `FK_USUARIO` (`REGIDUSU`);
+
+ALTER TABLE `regusu`
+  MODIFY `REGID` int(5) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=124;
+
+ALTER TABLE `regusu`
+  ADD CONSTRAINT `FK_USUARIO` FOREIGN KEY (`REGIDUSU`) REFERENCES `usucad` (`USUID`) ON DELETE CASCADE ON UPDATE CASCADE;

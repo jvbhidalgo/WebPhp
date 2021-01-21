@@ -34,11 +34,16 @@
       <input type="text" class="form-control" placeholder="Numero" name="numero" required><br />
       <input type="password" class="form-control" placeholder="Senha" name="senha" required><br />
       <input type="password" class="form-control" placeholder="Confirmar Senha" name="csenha" required><br />
-      <button type="submit" class="btn btn-primary" name="cada">Cadastrar</button><br />
+      <button type="submit" id="cada" name="cada" class="btn btn-primary mb-4">Cadastrar</button>
     </form>
-    <br>
-    <button class="btn btn-primary mb-4" href="index.html">Voltar</button>
+    <button class="btn btn-primary mb-4"><a href="index.php" style="color:white">Voltar</a></button>
   </div>
+
+  <script>
+    $('#modal').on('shown.bs.modal', function () {
+      $('#cada').trigger('focus')
+    })
+  </script>
 </body>
 
 </html>
