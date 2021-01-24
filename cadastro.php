@@ -8,47 +8,41 @@
   
   $retorna = '';
   $div = '';
+
   if (isset($_POST['cada'])){
     
-    $login         = $_POST["login"];
+    $tipo          = $_POST["tipo"];
     $nome          = strtoupper($func->limpaEspecial($_POST["nome"]));
-    $pass          = $_POST["senha"];
-    $email         = $_POST["email"];
-    $telefone      = str_replace(' ','',$func->limpaEspecial($_POST["telefone"]));
     $cep           = str_replace(' ','',$func->limpaEspecial($_POST["cep"]));
     $uf            = $_POST["uf"];
     $bairro        = $_POST["bairro"];
     $cidade        = $_POST["cidade"];
     $rua           = $_POST["rua"];
     $numero        = $_POST["numero"];
-    $cpass         = $_POST["csenha"];
 
-    $sql = "SELECT usuid FROM usucad WHERE usulogin = :login";
+    $sql = "SELECT IDCLI FROM CLIENTES WHERE NOMECLI = :nome";
     $result = $con->prepare($sql);
     
     $params = array(
-        'login'  => strtoupper($login)
+        ':nome'  => strtoupper($nome)
     );
     $result->execute($params);
     $usuario = $result->fetch();
 
     if (!$usuario){
       
-      $sql = "CALL cadastraUsuario(:login,:nome,:email,:telefone,:cep,:rua,:bairro,:cidade,:uf,:numero,:pass)";
+      $sql = "CALL cadastraPessoa(:tipo :nome,:cep,:rua,:bairro,:cidade,:uf,:numero)";
       $result = $con->prepare($sql);
       
       $params = array(
-        'login'      => $login,
+        'tipo'       => $tipo,
         'nome'       => $nome,
-        'email'      => $email,
-        'telefone'   => $telefone,
         'cep'        => $cep,
         'rua'        => $rua,
         'bairro'     => $bairro,
         'cidade'     => $cidade,
         'uf'         => $uf,
-        'numero'     => $numero,
-        'pass'       => $pass
+        'numero'     => $numero
       );
       $result->execute($params);
 
