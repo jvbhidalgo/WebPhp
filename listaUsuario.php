@@ -6,9 +6,9 @@ $palavra = $_POST['palavra'];
 
 $nome_procura = "%".$palavra."%";
 
-$txtprocura = "SELECT USUID
-                 FROM USUCAD 
-                WHERE USULOGIN LIKE :nome";
+$txtprocura = "SELECT IDCLI
+                 FROM CLIENTES 
+                WHERE NOMECLI LIKE :nome";
 $result = $con->prepare($txtprocura);
 
 $params = array(
@@ -23,8 +23,8 @@ $add = 0;
 echo '<table class="table">
         <thead class="thead-dark">
         <tr>
-            <th scope="col">LOGIN</th>
             <th scope="col">NOME</th>
+            <th scope="col">TIPO</th>
             <th scope="col">CIDADE</th>
             <th scope="col">ESTADO</th>
         </tr>
@@ -32,10 +32,11 @@ echo '<table class="table">
 foreach($procura as $aux){
 
     $add = $add + 1;
-    $id_usuario = $aux['USUID'];
-    $txtusu = "SELECT USULOGIN,USUNOME,USUCIDA,USUESTA
-                 FROM USUCAD 
-                WHERE USUID = :id";
+    $id_usuario = $aux['IDCLI'];
+    $txtusu = "SELECT IDCLI,NOMECLI,TIPODESC,CLICEP,CLICIDA
+                 FROM CLIENTES,TIPO_PESSOA 
+                WHERE IDCLI = :id
+                  AND CLIENTES.TIPOID = TIPO_PESSOA.TIPOID";
     $result = $con->prepare($txtusu);
     $params = array(
         'id'  => $id_usuario
@@ -43,15 +44,15 @@ foreach($procura as $aux){
     $result->execute($params);
     $usuario = $result->fetch();
 
-    $nome  = $usuario['USUNOME'];
-    $login = $usuario['USULOGIN'];
-    $cid   = $usuario['USUCIDA'];
-    $uf    = $usuario['USUESTA'];
+    $nome  = $usuario['NOMECLI'];
+    $login = $usuario['TIPODESC'];
+    $cid   = $usuario['CLICEP'];
+    $uf    = $usuario['CLICIDA'];
     echo '
           <tbody>
             <tr>
-                <td>'. $login . '</td>
-                <td>'. $nome . '</td>
+                <td>'. $nome. '</td>
+                <td>'. $login. '</td>
                 <td>'. $cid . '</td>
                 <td>'. $uf . '</td>
             </tr>';

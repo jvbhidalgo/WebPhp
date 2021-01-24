@@ -20,16 +20,15 @@
 
 <body>
   <div class="mt-4 container" style="text-align: center;">
-    <?php if (isset($_SESSION['usuario']) == ''){
-      echo '<button class="btn btn-primary mb-4">
+    
+      <button class="btn btn-primary mb-4">
         <a style="color: white; text-decoration: none" href="cadastro.php">Cadastro</a>
-      </button>';
-    }?>
-    <button class="btn btn-primary mb-4">
-      <a style="color: white; text-decoration: none" href="login.php">Login</a>
-    </button>
+      </button>
     <button class="btn btn-primary mb-4">
       <a style="color: white; text-decoration: none" href="listar.php">Listar</a>
+    </button>
+    <button class="btn btn-primary mb-4">
+      <a style="color: white; text-decoration: none" href="login.php">Excluir Usuario</a>
     </button>
   </div>
 </body>

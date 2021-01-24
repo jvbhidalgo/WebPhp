@@ -31,7 +31,7 @@
 
     if (!$usuario){
       
-      $sql = "CALL cadastraPessoa(:tipo :nome,:cep,:rua,:bairro,:cidade,:uf,:numero)";
+      $sql = "CALL cadastraPessoa(:tipo, :nome,:cep,:rua,:bairro,:cidade,:uf,:numero)";
       $result = $con->prepare($sql);
       
       $params = array(
