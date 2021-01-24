@@ -3,9 +3,10 @@
 <body>
   <div style="margin:auto; width:40%">
   <form id="cad" class="form-group mt-4" method="POST">
-    <input type="text"class="form-control"  placeholder="nome" name="nome"></br>
+    <input type="text"class="form-control"  placeholder="Nome completo" name="nome"></br>
     <input type="text" id="error" value="<?php echo $error ?>" style="display:none;">
     <button type="submit" class="btn btn-primary mb-4" name="cada" onclick="exibeAlerta()">Excluir</button>
+    <button type="submit" class="btn btn-primary mb-4" name="alt" onclick="exibeAlerta()">Alterar</button>
     <div class="popup" id="popupc">
       <span class="popuptext" id="myPopup">Usuário não encontrado</span>
     </div>

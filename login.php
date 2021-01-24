@@ -9,7 +9,7 @@
   $error = 0;
 
 
-  if (isset($_POST['cada'])){
+  if (isset($_POST['cada']) or isset($_POST['alt'])){
     $nome = "%".$_POST["nome"]."%";
 
     $sql = "SELECT IDCLI 
@@ -25,8 +25,10 @@
 
     if ($usuario){
       $_SESSION['usuario'] = $usuario['IDCLI'];
-      
-      $func->Redirect("removeUsuario.php");
+      if(isset($_POST['cada']))
+        $func->Redirect("removeUsuario.php");
+      else
+        $func->Redirect("procuraUsuario.php");
     }
     else
       $error = 1;

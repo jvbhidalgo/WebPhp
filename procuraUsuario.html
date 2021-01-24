@@ -1,0 +1,25 @@
+<title>Edição</title>
+</head>
+
+<body>
+  <div class="mt-4" style="margin: auto; width: 40%;">
+    <form id="editar" name="editar" class="form-group" method="post" action="">
+      <input type="text" class="form-control" value="<?php echo $nome ?>" name="nome" readonly><br />
+      <input type="text" class="form-control" value="<?php echo $cep ?>" name="cep" id="cep" maxlength="9"><br />
+      <input type="text" class="form-control" value="<?php echo $rua ?>" name="rua" id="rua" readonly><br />
+      <input type="text" class="form-control" value="<?php echo $bairro ?>" name="bairro" id="bairro" readonly><br />
+      <input type="number" class="form-control" max="9999" min="0" value="<?php echo $numero ?>" name="numero"
+        maxlength="6" onkeypress="return this.value.length < 5;"
+        oninput="if(this.value.length>=4) { this.value = this.value.slice(0,5); }"><br />
+      <input type="text" class="form-control" value="<?php echo $cidade ?>" id="cidade" name="cidade" readonly><br />
+      <input type="text" class="form-control" value="<?php echo $uf ?>" id="uf" name="uf" readonly><br />
+      <input type="text" class="form-control" value="<?php echo $tipo ?>" id="tipo" name="tipo" readonly><br />
+      <button type="submit" class="btn btn-primary mb-4" name="editar">Editar</button>
+    </form>
+    <button class="btn btn-primary mb-4"><a style="color: white; text-decoration: none;"
+        href="index.php">Voltar</a></button>
+  </div>
+
+</body>
+
+</html>
