@@ -4,13 +4,12 @@
 <body>
   <div style="margin: auto; width: 40%;">
     <form class="form-group" id="cad" method="post" action=""><br />
+      <input type="text" class="form-control" placeholder="Nome Completo" name="nome" minlength="8" required><br />
       <div class="row">
         <div class="col">
-          <input type="text" class="form-control" placeholder="Nome Completo" name="nome" minlength="8" required><br />
-          <div class="form-group">
-            <select class="form-control" id="exampleFormControlSelect1" name="tipo">
-              <option>Tipo Pessoa</option>
-              <?php 
+          <select class="form-control mb-4" name="tipo" style="width: 150px;">
+            <option>Tipo Pessoa</option>
+            <?php 
               $sql = "SELECT TIPOID,TIPODESC FROM TIPO_PESSOA WHERE 1 = :test";
               $result = $con->prepare($sql);
               
@@ -25,20 +24,18 @@
                 echo '<option value="'.$tipoident.'">'.$desctipo.'</option>';
               }
               ?>
-          </div>
-        
+        </div>
+        <div class="col">
+          <input name="cep" class="form-control" style="width: 200px;" type="text" id="cep" value="" size="10"
+            maxlength="9" placeholder="CEP" required /><br />
+        </div>
       </div>
-    </div>
-    <input name="cep" class="form-control" type="text" id="cep" value="" size="10" maxlength="9" placeholder="CEP"
-      required /><br />
-      <input name="rua" class="form-control" type="text" id="rua" size="60" placeholder="Rua" required
-        readonly><br />
+      <input name="rua" class="form-control" type="text" id="rua" size="60" placeholder="Rua" required readonly><br />
       <input name="bairro" class="form-control" type="text" id="bairro" size="40" placeholder="Bairro" required
         readonly /><br />
       <input name="cidade" class="form-control" type="text" id="cidade" size="40" placeholder="Cidade" required
         readonly /><br />
-      <input name="uf" class="form-control" type="text" id="uf" size="2" placeholder="UF" required
-        readonly /><br />
+      <input name="uf" class="form-control" type="text" id="uf" size="2" placeholder="UF" required readonly /><br />
       <input type="text" class="form-control" placeholder="Numero" name="numero" required><br />
       <button type="submit" id="cada" name="cada" class="btn btn-primary mb-4">Cadastrar</button>
     </form>

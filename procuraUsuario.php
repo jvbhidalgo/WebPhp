@@ -46,7 +46,8 @@
     $bairro        = $_POST["bairro"];
     $cidade        = $_POST["cidade"];
     $rua           = $_POST["rua"];
-    $numero        = $_POST["numero"];  
+    $numero        = $_POST["numero"]; 
+    $tipo          = $_POST['tipo']; 
 
     $id = $id_usuario;
 
